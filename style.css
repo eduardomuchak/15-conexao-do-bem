@@ -3,7 +3,7 @@ margin: 0;
 padding:0;  
 }
 
-.header {
+header {
     display:flex;
     justify-content: space-between;
     height: 10%;
@@ -29,6 +29,7 @@ padding:0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 300px;
 }
 
 footer {
@@ -36,4 +37,8 @@ footer {
     justify-content: space-between;
     height: 10%;
     background-color: yellow;
+}
+
+.info {
+    height: 250px;
 }

@@ -11,9 +11,9 @@
     <title>Conexão do Bem</title>
 </head>
 <body>
-    <header class="header">
+    <header class="container">
         <div class="img">
-            <img class ="image"src="Logo.svg" alt="logo">
+            <img class ="image"src="images/Logo.svg" alt="logo">
         </div>
         <div class="menu">
             <p class="home">HOME</p>
@@ -22,22 +22,25 @@
         </div>
     </header>
 <main>
-    <section class="info">
+    <section class="container info">
         <h1 class="sobre-nos">Sobre Nós</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem officiis saepe molestiae, expedita officia aliquid laborum molestias ipsa in pariatur culpa! Recusandae numquam, perferendis tempora minus eos mollitia quisquam voluptatum?</p>
     </section>
-    <section class="list-map">
-        <ol>
-            <li>
-                <p>Lista Ongs</p>
-            </li>
-        </ol>
-        <div>
+    <section class="container list-map ">
+        <div class="sub-container ong-list">
+            <ol>
+                <li>
+                    <p>Lista Ongs</p>
+                </li>
+            </ol>
+        </div>
+        <div class="map">
             <p>Mapa</p>
         </div>
     </section>
-    <section>
-        <form action="" method="GET">
+    <section class="container">
+        <form action="" method="GET" class="form-horizontal">
+            <label for="">Cadastre a sua ONG abaixo:</label>
             <div>
                 <label for="name">NOME DA ONG:
                   <input type="text" id="name">
@@ -45,7 +48,9 @@
             </div>
             <div>
                 <label for="adress">ENDEREÇO:
-                  <input type="text" id="adress">
+                Rua <input type="text" id="adress">
+                Bairro <input type="text">
+                Cidade <input type="text">
                 </label>
             </div>
             <div>
@@ -60,7 +65,7 @@
             </div>
         </form>
     </section>
-    <footer>
+    <footer class="container">
         <p>Projeto Conexão do Bem - Trybe</p>
         <p>Desenvolvido por: Eduardo Muchak, Rafael Dias, Rodrigo de Castro e Vinicius de Paula</p>
     </footer>
