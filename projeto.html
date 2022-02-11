@@ -11,61 +11,109 @@
     <title>Conexão do Bem</title>
 </head>
 <body>
-    <header class="header">
+    <header class="panel-heading header">
         <div class="img">
             <img class ="image"src="images/Logo.svg" alt="logo">
         </div>
         <div class="menu">
-            <p class="home">HOME</p>
-            <p class="sobre">SOBRE</p>
-            <p class="ongs">ONGS</p>
+            <span class="home panel-text">HOME</span>
+            <span class="sobre panel-text">SOBRE</span>
+            <span class="ongs panel-text">ONGS</span>
         </div>
     </header>
 <main>
-    <section class="info">
+    <section class="col-md-1">
         <h1 class="sobre-nos">Sobre Nós</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem officiis saepe molestiae, expedita officia aliquid laborum molestias ipsa in pariatur culpa! Recusandae numquam, perferendis tempora minus eos mollitia quisquam voluptatum?</p>
+        <p>Somos um projeto colaborativo desenvolvido pelos colegas estudantes da Trybe Digão, Edu, Rafa e Vini, que juntos acreditam no poder da colaboração e na importância de ajudar o próximo.
+        Sendo assim desenvolvemos a plataforma Conexão do Bem, utilizando da API do Google Maps, nossa missão é aproximar as pessoas voluntárias dispostas a ajudar com as ONGs que necessitam de apoio, formando assim um ciclo constante dentro de suas respectivas regiões.</p>
     </section>
-    <section class="list-map">
-        <ol>
-            <li>
-                <p>Lista Ongs</p>
-            </li>
-        </ol>
-        <div>
+    <section class="container list-map">
+        <div class="sub-container ong-list">
+            <ol>
+                <li>
+                    <p>Lista Ongs</p>
+                </li>
+            </ol>
+        </div>
+        <div class="map">
             <p>Mapa</p>
         </div>
     </section>
+    
     <section>
         <form action="" method="GET">
-            <div>
-                <label for="name">NOME DA ONG:
-                  <input type="text" id="name">
-                </label>
-            </div>
-            <div>
-                <label for="adress">ENDEREÇO:
-                  <input type="text" id="adress">
-                </label>
-            </div>
-            <div>
-                <label for="tel">TELEFONE:
-                  <input type="number" id="nome">
-                </label>
-            </div>
-            <div>
-                <label for="nome">EMAIL:
-                  <input type="email" id="nome">
-                </label>
-            </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><h3><strong>Cadastre a sua ONG</strong></h3></div> 
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-1 control-label" for="categoria">Classificação da sua ONG:</label>
+                    <div class="col-md-1"> 
+                        <label required="" class="radio-inline" for="animais" >
+                            <input name="categoria" id="animais" value="animais" type="radio" required> Animais
+                        </label> 
+                        <label class="radio-inline" for="criancas">
+                            <input name="categoria" id="criancas" value="crianças" type="radio"> Crianças                 
+                        </label>
+                        <label class="radio-inline" for="idosos">
+                            <input name="categoria" id="idosos" value="idosos" type="radio"> Idosos                 
+                        </label>
+                    </div>
+                </div>
+     
+                <div class="form-group">
+                     <label class="col-md-1 control-label" for="Nome">Nome da ONG</label>  
+                     <div class="col-md-1">
+                        <input id="Nome" name="Nome" placeholder="Digite o nome da ONG aqui" class="form-control input-md" required="" type="text">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="endereço">Endereço</label>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <span class="input-group-addon">Rua</span>
+                            <input id="rua" name="rua" class="form-control" placeholder="Ex.: Avenida Imbiara" required="" type="text">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">Nº</span>
+                            <input id="numero" name="numero" class="form-control" placeholder="Ex.: 184" required=""  type="text">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">Bairro</span>
+                            <input id="bairro" name="bairro" class="form-control" placeholder="Ex.: Centro" required="" type="text">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">Cidade</span>
+                            <input id="cidade" name="cidade" class="form-control" placeholder="Ex.: Araxá" required="" type="text">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">Estado</span>
+                            <input id="estado" name="estado" class="form-control" placeholder="Ex. MG" required="" type="text" maxlength="2">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                     <label class="col-md-2 control-label" for="Nome">Nome do Responsável</label>  
+                     <div class="col-md-2">
+                         <input id="Nome" name="Nome" placeholder="Digite o nome do responsável da ONG aqui" class="form-control input-md" required="" type="text">
+                     </div>
+                 </div>
+     
+                 <div class="form-group">
+                     <label class="col-md-2 control-label" for="cpf">CPF do responsável</label>  
+                     <div class="col-md-2">
+                         <input id="cpf" name="cpf" placeholder="Apenas números" class="form-control input-md" required="" type="text" maxlength="11">
+                     </div>
+                 </div>
         </form>
     </section>
-    <footer>
+    
+    <footer class="panel-heading panel-text">
         <p>Projeto Conexão do Bem - Trybe</p>
         <p>Desenvolvido por: Eduardo Muchak, Rafael Dias, Rodrigo de Castro e Vinicius de Paula</p>
     </footer>
-    
-
 </main>
     <script src="script.js"></script>
 </body>
