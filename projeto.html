@@ -12,18 +12,20 @@
     <title>Conexão do Bem</title>
 </head>
 <body>
+    <a name="top"></a>
     <header class="panel-heading header">
         <div class="img">
             <img class ="image"src="images/Logo.svg" alt="logo">
         </div>
         <div class="menu">
-            <span class="home panel-text">HOME</span>
-            <span class="sobre panel-text">SOBRE</span>
-            <span class="ongs panel-text">ONGS</span>
+            <a class="home panel-text" href="#top">HOME</a>
+            <a class="sobre panel-text" href ="#sobre-nos">SOBRE</a>
+            <a class="ongs panel-text" href="#form">ONGS</a>
         </div>
     </header>
 <main>
     <section class="col-md-1">
+        <a name="sobre-nos"></a>
         <h1 class="sobre-nos">Sobre Nós</h1>
         <p>Somos um projeto colaborativo desenvolvido pelos colegas estudantes da Trybe Digão, Edu, Rafa e Vini, que juntos acreditam no poder da colaboração e na importância de ajudar o próximo.
         Sendo assim desenvolvemos a plataforma Conexão do Bem, utilizando da API do Google Maps, nossa missão é aproximar as pessoas voluntárias dispostas a ajudar com as ONGs que necessitam de apoio, formando assim um ciclo constante dentro de suas respectivas regiões.</p>
@@ -40,7 +42,8 @@
     </section>
     
     <section>
-        <form action="" method="GET">
+        <form action="." method="get">
+            <a name="form"></a>
                 <div class="panel panel-primary">
                     <div class="panel-heading"><h3><strong>Cadastre a sua ONG</strong></h3></div> 
                 </div>
@@ -71,8 +74,12 @@
                     <label class="col-md-2 control-label" for="endereço">Endereço</label>
                     <div class="col-md-2">
                         <div class="input-group">
-                            <span class="input-group-addon">Rua</span>
-                            <input id="rua" name="rua" class="form-control" placeholder="Ex.: Avenida Imbiara" required="" type="text">
+                            <span class="input-group-addon">Cep</span>
+                            <input id="cep" name="cep" class="form-control" placeholder="Ex: 38183-244" required="" type="text" maxlength="9" onblur="pesquisacep(this.value)">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon ">Rua</span>
+                            <input id="rua" name="rua" class="form-control" placeholder="Ex.: Avenida Imbiara" required="" type="text" disabled readonly>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon">Nº</span>
@@ -80,15 +87,15 @@
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon">Bairro</span>
-                            <input id="bairro" name="bairro" class="form-control" placeholder="Ex.: Centro" required="" type="text">
+                            <input id="bairro" name="bairro" class="form-control" placeholder="Ex.: Centro" required="" type="text" disabled readonly>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon">Cidade</span>
-                            <input id="cidade" name="cidade" class="form-control" placeholder="Ex.: Araxá" required="" type="text">
+                            <input id="cidade" name="cidade" class="form-control" placeholder="Ex.: Araxá" required="" type="text" disabled readonly>
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon">Estado</span>
-                            <input id="estado" name="estado" class="form-control" placeholder="Ex. MG" required="" type="text" maxlength="2">
+                            <input id="estado" name="estado" class="form-control" placeholder="Ex. MG" required="" type="text" maxlength="2" disabled readonly>
                         </div>
                     </div>
                 </div>
@@ -106,14 +113,23 @@
                          <input id="cpf" name="cpf" placeholder="Apenas números" class="form-control input-md" required="" type="text" maxlength="11">
                      </div>
                  </div>
+                 <div class="col-md-2 form-group">
+                 <button type="button" class="btn btn-success" id="botao-cadastrar">Cadastrar</button>
+                 <button type="button" class="btn btn-danger" id="botao-limpar">Limpar</button>
+                </div>
         </form>
     </section>
     
-    <footer class="panel-heading panel-text">
+    <footer class="panel-heading panel-text footer" >
         <p>Projeto Conexão do Bem - Trybe</p>
         <p>Desenvolvido por: Eduardo Muchak, Rafael Dias, Rodrigo de Castro e Vinicius de Paula</p>
     </footer>
 </main>
-
+    <script src="script.js"></script>
+    <script src="apiCep.js"></script>
+    <script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANJBNDYl8T-MiP8-DXh2aR7lfBIVmdKcc&callback=initMap&v=weekly"
+async
+></script>
 </body>
 </html>
