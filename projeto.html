@@ -43,7 +43,7 @@
     </section>
     
     <section>
-        <form action="" method="GET">
+        <form action="." method="get">
             <a name="form"></a>
                 <div class="panel panel-primary">
                     <div class="panel-heading"><h3><strong>Cadastre a sua ONG</strong></h3></div> 
@@ -76,7 +76,7 @@
                     <div class="col-md-2">
                         <div class="input-group">
                             <span class="input-group-addon">Cep</span>
-                            <input id="cep" name="cep" class="form-control" placeholder="Ex:38183-244" required="" type="text" >
+                            <input id="cep" name="cep" class="form-control" placeholder="Ex: 38183-244" required="" type="text" maxlength="9" onblur="pesquisacep(this.value)">
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon ">Rua</span>
@@ -115,8 +115,8 @@
                      </div>
                  </div>
                  <div class="col-md-2 form-group">
-                 <button type="button" class="btn btn-success">Cadastrar</button>
-                 <button type="button" class="btn btn-danger">Limpar</button>
+                 <button type="button" class="btn btn-success" id="botao-cadastrar">Cadastrar</button>
+                 <button type="button" class="btn btn-danger" id="botao-limpar">Limpar</button>
                 </div>
         </form>
     </section>
@@ -127,5 +127,6 @@
     </footer>
 </main>
     <script src="script.js"></script>
+    <script src="apiCep.js"></script>
 </body>
 </html>
