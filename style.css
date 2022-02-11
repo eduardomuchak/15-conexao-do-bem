@@ -3,6 +3,10 @@ margin: 0;
 padding:0;  
 }
 
+body {
+    width: 100%;
+}
+
 header {
     display:flex;
     justify-content: space-between;
@@ -38,6 +42,7 @@ footer {
     justify-content: space-between;
     height: 10%;
     background-color: rgb(51, 122, 183);
+    text-decoration: none;
 }
 
 .info {
@@ -49,5 +54,5 @@ footer {
 }
 
 span {
-    align: center
+    box-align: center
 }
