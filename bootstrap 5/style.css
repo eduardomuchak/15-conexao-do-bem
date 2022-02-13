@@ -1,0 +1,20 @@
+.img-150px-width {
+    width: 150px;
+ }
+
+ .header-color, .footer-color {
+    background-color: rgb(41, 134, 204);
+ }
+
+ .footer-text-color {
+    color: white;
+ }
+
+ .map {
+    width: auto;
+    height: 500px;
+}
+
+ol {
+   padding: 0;
+}
