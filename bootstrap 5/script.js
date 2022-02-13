@@ -122,12 +122,9 @@ function appendOngList(event) {
 botaoCadastrar.addEventListener('click', appendOngList);
 
 function clearForm() {
+  limpa_formulário_cep()
   nomeDaOng.value = '';
   inputCep.value = '';
-  rua.value = '';
   numeroPredial.value = '';
-  cidade.value = '';
-  bairro.value = ''
-  estado.value = '';
 };
 botaoLimpar.addEventListener('click', clearForm);
