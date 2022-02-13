@@ -7,6 +7,7 @@ const numeroPredial = document.querySelector('#input-numero-predial');
 const bairro = document.querySelector('#input-bairro');
 const cidade = document.querySelector('#input-cidade');
 const estado = document.querySelector('#input-estado');
+const inputCep = document.querySelector('#input-CEP');
 
 let map;
 
@@ -118,5 +119,15 @@ function appendOngList(event) {
   event.preventDefault();
   listaOngs.appendChild(getOngInfo()); 
 };
-
 botaoCadastrar.addEventListener('click', appendOngList);
+
+function clearForm() {
+  nomeDaOng.value = '';
+  inputCep.value = '';
+  rua.value = '';
+  numeroPredial.value = '';
+  cidade.value = '';
+  bairro.value = ''
+  estado.value = '';
+};
+botaoLimpar.addEventListener('click', clearForm);
