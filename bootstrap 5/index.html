@@ -11,8 +11,8 @@
   <title>Conexão do Bem</title>
 </head>
 <body>
- 
   <nav class="navbar col-12 position-fixed navbar-expand-lg navbar-dark p-3 header-color" style="z-index: 999">
+    
     <div class="container-fluid col-11 m-auto">
       <img src="/images/Logo.svg" alt="" class="img-150px-width">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,18 +21,22 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="#top">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sobre nós</a>
+            <a class="nav-link" href="#sobre-nos">Sobre nós</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Ongs</a>
+            <a class="nav-link" href="#ong-list">ONGS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#form">Cadastre sua ONG</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  <a name="top"></a>
   
   <br><br><br>
 
@@ -67,6 +71,7 @@
   
   <main class="col-9 m-auto">
     <section>
+      <a name="sobre-nos"></a>
       <h2>Sobre Nós</h2>
       <p>Somos um projeto colaborativo desenvolvido pelos colegas estudantes da Trybe Digão, Edu, Rafa e Vini, que juntos acreditam no poder da colaboração e na importância de ajudar o próximo.
       Sendo assim desenvolvemos a plataforma Conexão do Bem, utilizando da API do Google Maps, nossa missão é aproximar as pessoas voluntárias dispostas a ajudar com as ONGs que necessitam de apoio, formando assim um ciclo constante dentro de suas respectivas regiões.</p>
@@ -105,6 +110,7 @@
     </datalist>
 
     <section class="list-map">
+      <a name="ong-list"></a>
       <div class="ong-list col">
         <h3 class="mt-3 mb-3">Lista Ongs:</h3>
         <ul class="list-group list-group-flush mb-3 lista-ong">
@@ -155,6 +161,7 @@
     </div> -->
 
     <form action="." method="get" >
+      <a name="form"></a>
       <section class="mb-3">
         <h2 class="mt-3 mb-3">Cadastre a sua ONG</h2> 
         <p for="categoria">Classificação da sua ONG:</p>
