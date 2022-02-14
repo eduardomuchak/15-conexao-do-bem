@@ -9,34 +9,16 @@ const cidade = document.querySelector('#input-cidade');
 const estado = document.querySelector('#input-estado');
 const inputCep = document.querySelector('#input-CEP');
 
+const botaoFiltrar = document.querySelector('.btn-filter')
+
+
 let map;
 
 function initMap() {
   map = new google.maps.Map(document.querySelector(".map"), {
-    center: { lat: -15.212355602107472, lng: -44.20234468749999},
-    zoom: 3,
-  })
-  const ponto = new google.maps.LatLng(-27.6811852,-48.48256989999999);
-  const sp = new google.maps.LatLng(-22.618827234831404,-42.57636812499999);
-  const rj = new google.maps.LatLng(-23.5516754,-46.6233359);
-  const marker = new google.maps.Marker({
-      position: ponto, sp ,//seta posição
-      map: map,//Objeto mapa
-      title:"Projeto Construindo um futuro"//string que será exibida quando passar o mouse no marker
-      //icon: caminho_da_imagem
-    });
-      const marker2 = new google.maps.Marker({
-            position: sp,//seta posição
-            map: map,//Objeto mapa
-            title:"Projeto Gerando Falcões!"//string que será exibida quando passar o mouse no marker
-            //icon: caminho_da_imagem
+    center: { lat: -15.212355602107472, lng: -52},
+    zoom: 4.1,
   });
-  const marker3 = new google.maps.Marker({
-    position: rj,//seta posição
-    map: map,//Objeto mapa
-    title:"Projeto Gerando Futuro!"//string que será exibida quando passar o mouse no marker
-    //icon: caminho_da_imagem
-});
 };
 
 function limpa_formulário_cep() {
@@ -110,6 +92,11 @@ function getOngInfo() {
   const createLi = document.createElement('li');
   const createH5 = document.createElement('h5');
   const createSpan = document.createElement('span');
+
+  const categoria = document.querySelector('input[name="categoria"]:checked');
+  createLi.classList.add(estado.value);
+  createLi.classList.add(categoria.value);
+
   createLi.appendChild(createH5);
   createLi.classList.add('list-group-item');
   createH5.innerHTML = `${nomeDaOng.value.toUpperCase()}`;
@@ -118,10 +105,18 @@ function getOngInfo() {
   return createLi; 
 };
 
-function appendOngList(event) {
+async function appendOngList(event) {
   event.preventDefault();
   listaOngs.appendChild(getOngInfo()); 
+  const location = (await teste(inputCep.value));
+  const ponto = new google.maps.LatLng(location.latitute, location.longitude)
+  const marker = new google.maps.Marker({
+    position: ponto,//seta posição
+    map: map,//Objeto mapa
+    title: nomeDaOng.value
+  });
 };
+
 botaoCadastrar.addEventListener('click', appendOngList);
 
 function clearForm() {
@@ -131,5 +126,70 @@ function clearForm() {
   numeroPredial.value = '';
 };
 botaoLimpar.addEventListener('click', clearForm);
+
+// FUNÇÕES DIGÃO
+
+const saveOngs = (addedItem) => {
+  localStorage.setItem('ongsSaved', addedItem);
+};
+
+function createElementP(valor) {
+  const info = document.createElement('p');
+  info.innerText = valor;
+  return info 
+}
+
+function filterPerRegion() {
+  const instituicoesListadas = [...listaOngs.children];
+  const select = document.querySelector('#state-filter');
+	const estado = select.options[select.selectedIndex].text;
+  const select2 = document.querySelector('#category-filter');
+	const categoria = select2.options[select2.selectedIndex].text;
+  instituicoesListadas.forEach ((element) => {
+    if (!element.classList.contains(estado) || !element.classList.contains(categoria)){
+      element.classList.add('disappear')
+    }
+    if (element.classList.contains(estado) && element.classList.contains(categoria)){
+      element.classList.remove('disappear')
+    }
+    if (estado === 'TODOS' && element.classList.contains(categoria)){
+      element.classList.remove('disappear')
+    }
+    if (categoria === 'TODOS' && element.classList.contains(estado)){
+      element.classList.remove('disappear')
+    }
+    if (estado === 'TODOS' && categoria === 'TODOS'){
+      element.classList.remove('disappear')
+    };
+  });
+};
+
+const createDiv = async () => {
+  const item = document.createElement('li');
+  const categoria = document.querySelector('input[name="categoria"]:checked');
+  item.classList.add(estado.value);
+  item.classList.add(categoria.value);
+  item.appendChild(createElementP(nomeDaOng.value));
+  item.appendChild(createElementP(cidade.value));
+  item.appendChild(createElementP(estado.value));
+  item.appendChild(createElementP(categoria.value));
+  listaOngs.appendChild(item);
+  const location = (await teste(cep.value));
+  const ponto = new google.maps.LatLng(location.latitute, location.longitude)
+  const marker = new google.maps.Marker({
+    position: ponto,//seta posição
+    map: map,//Objeto mapa
+    title: nomeDaOng.value
+  });
+};
+
+botaoFiltrar.addEventListener('click', filterPerRegion);
+
+const teste = async (cep) => {
+  const location = await buscaLocalizacao(cep);
+  const lat = location[0].geometry.location.lat;
+  const lng = location[0].geometry.location.lng;
+  return {latitute: lat, longitude: lng}
+};
 
 module.exports = pesquisacep;
