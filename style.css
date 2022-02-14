@@ -62,3 +62,7 @@ span {
     height: 600px;
     margin: 50px;
 }
+
+.disappear {
+    display: none;
+}

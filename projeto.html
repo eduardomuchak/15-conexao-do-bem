@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="jquery-3.6.0.min.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="consultaMaps.js" defer></script>
     <title>Conexão do Bem</title>
 </head>
 <body>
@@ -32,7 +33,8 @@
 
     <div class="col-md-1">
         <label for="UF">Selecione o estado
-            <select name="UF" class="form-control">
+            <select name="UF" class="form-control" id="state-filter">
+                <option class="dropdown-item" href="#">TODOS</option>
                 <option class="dropdown-item" href="#">AC</option>
                 <option class="dropdown-item" href="#">AL</option>
                 <option class="dropdown-item" href="#">AP</option>
@@ -62,6 +64,15 @@
                 <option class="dropdown-item" href="#">TO</option>
             </select>
         </label>
+        <label for="UF">Selecione a categoria
+            <select name="UF" class="form-control" id="category-filter">
+                <option class="dropdown-item" href="#">TODOS</option>
+                <option class="dropdown-item" href="#">crianças</option>
+                <option class="dropdown-item" href="#">animais</option>
+                <option class="dropdown-item" href="#">idosos</option>
+            </select>
+        </label>
+        <button class="btn-filter">Filtrar</button>
     </div>
     
     <section class="container list-map">
@@ -84,8 +95,8 @@
                 <div class="form-group">
                     <label class="col-md-1 control-label" for="categoria">Classificação da sua ONG:</label>
                     <div class="col-md-1"> 
-                        <label required="" class="radio-inline" for="animais" >
-                            <input name="categoria" id="animais" value="animais" type="radio" required> Animais
+                        <label class="radio-inline" for="animais" >
+                            <input name="categoria" id="animais" value="animais" type="radio"> Animais
                         </label> 
                         <label class="radio-inline" for="criancas">
                             <input name="categoria" id="criancas" value="crianças" type="radio"> Crianças                 
