@@ -8,9 +8,7 @@ const bairro = document.querySelector('#input-bairro');
 const cidade = document.querySelector('#input-cidade');
 const estado = document.querySelector('#input-estado');
 const inputCep = document.querySelector('#input-CEP');
-
 const botaoFiltrar = document.querySelector('.btn-filter')
-
 
 let map;
 
@@ -127,17 +125,9 @@ function clearForm() {
 };
 botaoLimpar.addEventListener('click', clearForm);
 
-// FUNÇÕES DIGÃO
-
 const saveOngs = (addedItem) => {
   localStorage.setItem('ongsSaved', addedItem);
 };
-
-function createElementP(valor) {
-  const info = document.createElement('p');
-  info.innerText = valor;
-  return info 
-}
 
 function filterPerRegion() {
   const instituicoesListadas = [...listaOngs.children];
@@ -161,25 +151,6 @@ function filterPerRegion() {
     if (estado === 'TODOS' && categoria === 'TODOS'){
       element.classList.remove('disappear')
     };
-  });
-};
-
-const createDiv = async () => {
-  const item = document.createElement('li');
-  const categoria = document.querySelector('input[name="categoria"]:checked');
-  item.classList.add(estado.value);
-  item.classList.add(categoria.value);
-  item.appendChild(createElementP(nomeDaOng.value));
-  item.appendChild(createElementP(cidade.value));
-  item.appendChild(createElementP(estado.value));
-  item.appendChild(createElementP(categoria.value));
-  listaOngs.appendChild(item);
-  const location = (await teste(cep.value));
-  const ponto = new google.maps.LatLng(location.latitute, location.longitude)
-  const marker = new google.maps.Marker({
-    position: ponto,//seta posição
-    map: map,//Objeto mapa
-    title: nomeDaOng.value
   });
 };
 

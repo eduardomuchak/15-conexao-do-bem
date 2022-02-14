@@ -108,9 +108,10 @@
            </button>
          </div>
       <div class="col">
-        <label for="lista-UF" class="form-label">Selecione um estado:</label>
+        <!-- <label for="lista-UF" class="form-label">Selecione um estado:</label>
         <input class="form-control" list="state-filter" id="lista-UF" placeholder="Digite para pesquisar" maxlength="2">
         <datalist id="state-filter">
+          <option class="dropdown-item" href="#">TODOS</option>
           <option class="dropdown-item" href="#">AC</option>
           <option class="dropdown-item" href="#">AL</option>
           <option class="dropdown-item" href="#">AP</option>
@@ -138,7 +139,40 @@
           <option class="dropdown-item" href="#">SP</option>
           <option class="dropdown-item" href="#">SE</option>
           <option class="dropdown-item" href="#">TO</option>
-        </datalist>
+        </datalist> -->
+
+        <label for="UF">Selecione o estado
+          <select name="UF" class="form-control" id="state-filter">
+              <option class="dropdown-item" href="#">TODOS</option>
+              <option class="dropdown-item" href="#">AC</option>
+              <option class="dropdown-item" href="#">AL</option>
+              <option class="dropdown-item" href="#">AP</option>
+              <option class="dropdown-item" href="#">AM</option>
+              <option class="dropdown-item" href="#">BA</option>
+              <option class="dropdown-item" href="#">CE</option>
+              <option class="dropdown-item" href="#">DF</option>
+              <option class="dropdown-item" href="#">ES</option>
+              <option class="dropdown-item" href="#">GO</option>
+              <option class="dropdown-item" href="#">MA</option>
+              <option class="dropdown-item" href="#">MT</option>
+              <option class="dropdown-item" href="#">MS</option>
+              <option class="dropdown-item" href="#">MG</option>
+              <option class="dropdown-item" href="#">PA</option>
+              <option class="dropdown-item" href="#">PB</option>
+              <option class="dropdown-item" href="#">PR</option>
+              <option class="dropdown-item" href="#">PE</option>
+              <option class="dropdown-item" href="#">PI</option>
+              <option class="dropdown-item" href="#">RJ</option>
+              <option class="dropdown-item" href="#">RN</option>
+              <option class="dropdown-item" href="#">RS</option>
+              <option class="dropdown-item" href="#">RO</option>
+              <option class="dropdown-item" href="#">RR</option>
+              <option class="dropdown-item" href="#">SC</option>
+              <option class="dropdown-item" href="#">SP</option>
+              <option class="dropdown-item" href="#">SE</option>
+              <option class="dropdown-item" href="#">TO</option>
+          </select>
+      </label>
         
         <label for="UF">Selecione a categoria
           <select name="UF" class="form-control" id="category-filter">
@@ -155,10 +189,6 @@
           <div class="ong-list col">
             <h3 class="mt-3 mb-3">Lista Ongs:</h3>
             <ul class="list-group list-group-flush mb-3 lista-ong">
-              <li class="list-group-item"><h5>AÇÃO SOCIAL DO PARANÁ</h5><span>ENDEREÇO: RUA BALTAZAR CARRASCO DOS REIS - 1787, REBOUÇAS - CURITIBA/PR</span></li>
-              <li class="list-group-item"><h5>CENTRO DE CULTURA AFRO DE PIABETA</h5><span>ENDEREÇO: RUA DONA GERTRUDES - 105, PIABETA - MAGÉ/RJ</span></li>
-              <li class="list-group-item"><h5>FUNDAÇÃO MATUTU</h5><span>ENDEREÇO: RESERVA MATUTU - S/N, ZONA RURAL - MATUTU/MG</span></li>
-              <li class="list-group-item"><h5>INSTITUTO NOSSA SENHORA AUXILIADORA</h5><span>ENDEREÇO: AVENIDA DOM BOSCO - 310, CENTRO - BATURITÉ/CE</span></li>
             </ul>
 
           </div>
