@@ -22,3 +22,8 @@ ol {
 .disappear, .disappearCep{
    display: none;
 }
+
+.cor {
+   background-color: rgb(41, 134, 204)!important;
+}
+

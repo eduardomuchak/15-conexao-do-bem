@@ -145,7 +145,7 @@ function filterPerRegion() {
   const select = document.querySelector('#state-filter');
 	const estado = select.options[select.selectedIndex].text;
   const select2 = document.querySelector('#category-filter');
-	const categoria = select2.options[select2.selectedIndex].text;
+	const categoria = select2.options[select2.selectedIndex].text.toLowerCase();
   instituicoesListadas.forEach ((element) => {
     if (!element.classList.contains(estado) || !element.classList.contains(categoria)){
       element.classList.add('disappear')
