@@ -122,6 +122,7 @@ async function appendOngList(event) {
     title: nomeDaOng.value
   });
   saveOngs(listaOngs.innerHTML);
+  clearForm();
 };
 botaoCadastrar.addEventListener('click', appendOngList);
 
