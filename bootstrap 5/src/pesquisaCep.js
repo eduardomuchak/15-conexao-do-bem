@@ -1,3 +1,14 @@
+const botaoCadastrar = document.querySelector('.btn-success');
+const botaoLimpar = document.querySelector('#botao-limpar');
+const listaOngs = document.querySelector('.lista-ong');
+const nomeDaOng = document.querySelector('#input-nome-ong');
+const rua = document.querySelector('#input-endereco');
+const numeroPredial = document.querySelector('#input-numero-predial');
+const bairro = document.querySelector('#input-bairro');
+const cidade = document.querySelector('#input-cidade');
+const estado = document.querySelector('#input-estado');
+const inputCep = document.querySelector('#input-CEP');
+
 function pesquisacep(valor) {
   //Nova variável "cep" somente com dígitos.
   let cep = valor.replace(/\D/g, '');
