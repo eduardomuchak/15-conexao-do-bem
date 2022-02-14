@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
     <script src="jquery-3.6.0.min.js"></script>
     <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-    <script src="script.js"></script>
     <title>Conexão do Bem</title>
 </head>
 <body>
@@ -30,10 +29,44 @@
         <p>Somos um projeto colaborativo desenvolvido pelos colegas estudantes da Trybe Digão, Edu, Rafa e Vini, que juntos acreditam no poder da colaboração e na importância de ajudar o próximo.
         Sendo assim desenvolvemos a plataforma Conexão do Bem, utilizando da API do Google Maps, nossa missão é aproximar as pessoas voluntárias dispostas a ajudar com as ONGs que necessitam de apoio, formando assim um ciclo constante dentro de suas respectivas regiões.</p>
     </section>
+
+    <div class="col-md-1">
+        <label for="UF">Selecione o estado
+            <select name="UF" class="form-control">
+                <option class="dropdown-item" href="#">AC</option>
+                <option class="dropdown-item" href="#">AL</option>
+                <option class="dropdown-item" href="#">AP</option>
+                <option class="dropdown-item" href="#">AM</option>
+                <option class="dropdown-item" href="#">BA</option>
+                <option class="dropdown-item" href="#">CE</option>
+                <option class="dropdown-item" href="#">DF</option>
+                <option class="dropdown-item" href="#">ES</option>
+                <option class="dropdown-item" href="#">GO</option>
+                <option class="dropdown-item" href="#">MA</option>
+                <option class="dropdown-item" href="#">MT</option>
+                <option class="dropdown-item" href="#">MS</option>
+                <option class="dropdown-item" href="#">MG</option>
+                <option class="dropdown-item" href="#">PA</option>
+                <option class="dropdown-item" href="#">PB</option>
+                <option class="dropdown-item" href="#">PR</option>
+                <option class="dropdown-item" href="#">PE</option>
+                <option class="dropdown-item" href="#">PI</option>
+                <option class="dropdown-item" href="#">RJ</option>
+                <option class="dropdown-item" href="#">RN</option>
+                <option class="dropdown-item" href="#">RS</option>
+                <option class="dropdown-item" href="#">RO</option>
+                <option class="dropdown-item" href="#">RR</option>
+                <option class="dropdown-item" href="#">SC</option>
+                <option class="dropdown-item" href="#">SP</option>
+                <option class="dropdown-item" href="#">SE</option>
+                <option class="dropdown-item" href="#">TO</option>
+            </select>
+        </label>
+    </div>
+    
     <section class="container list-map">
         <div class="sub-container ong-list">
             <ol class="institution-list">Lista Ongs:
-                <li>Gerando Falcões</li>
             </ol>
         </div>
         <div class="map">
@@ -66,7 +99,7 @@
                 <div class="form-group">
                      <label class="col-md-1 control-label" for="Nome">Nome da ONG</label>  
                      <div class="col-md-1">
-                        <input id="Nome" name="Nome" placeholder="Digite o nome da ONG aqui" class="form-control input-md" required="" type="text">
+                        <input id="nome-da-ong" name="Nome" placeholder="Digite o nome da ONG aqui" class="form-control input-md" required="" type="text">
                     </div>
                 </div>
 
@@ -100,22 +133,9 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                     <label class="col-md-2 control-label" for="Nome">Nome do Responsável</label>  
-                     <div class="col-md-2">
-                         <input id="Nome" name="Nome" placeholder="Digite o nome do responsável da ONG aqui" class="form-control input-md" required="" type="text">
-                     </div>
-                 </div>
-     
-                 <div class="form-group">
-                     <label class="col-md-2 control-label" for="cpf">CPF do responsável</label>  
-                     <div class="col-md-2">
-                         <input id="cpf" name="cpf" placeholder="Apenas números" class="form-control input-md" required="" type="text" maxlength="11">
-                     </div>
-                 </div>
-                 <div class="col-md-2 form-group">
-                 <button type="button" class="btn btn-success" id="botao-cadastrar">Cadastrar</button>
-                 <button type="button" class="btn btn-danger" id="botao-limpar">Limpar</button>
+                <div class="col-md-2 form-group">
+                    <button type="button" class="btn btn-success" id="botao-cadastrar">Cadastrar</button>
+                    <button type="button" class="btn btn-danger" id="botao-limpar">Limpar</button>
                 </div>
         </form>
     </section>
@@ -126,7 +146,6 @@
     </footer>
 </main>
     <script src="script.js"></script>
-    <script src="apiCep.js"></script>
     <script
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANJBNDYl8T-MiP8-DXh2aR7lfBIVmdKcc&callback=initMap&v=weekly"
 async

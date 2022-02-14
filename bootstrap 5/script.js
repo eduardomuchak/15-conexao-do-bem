@@ -1,6 +1,13 @@
 const botaoCadastrar = document.querySelector('.btn-success');
 const botaoLimpar = document.querySelector('#botao-limpar');
-const listaOngs = document.querySelector('.institution-list')
+const listaOngs = document.querySelector('.lista-ong');
+const nomeDaOng = document.querySelector('#input-nome-ong');
+const rua = document.querySelector('#input-endereco');
+const numeroPredial = document.querySelector('#input-numero-predial');
+const bairro = document.querySelector('#input-bairro');
+const cidade = document.querySelector('#input-cidade');
+const estado = document.querySelector('#input-estado');
+const inputCep = document.querySelector('#input-CEP');
 
 let map;
 
@@ -30,14 +37,7 @@ function initMap() {
     title:"Projeto Gerando Futuro!"//string que será exibida quando passar o mouse no marker
     //icon: caminho_da_imagem
 });
-}; 
-
-let rua = document.querySelector('#rua');
-let numeroPredial = document.querySelector('#numero');
-let bairro = document.querySelector('#bairro');
-let cidade = document.querySelector('#cidade');
-let estado = document.querySelector('#estado');
-let nomeDaOng = document.querySelector('#nome-da-ong');
+};
 
 function limpa_formulário_cep() {
   //Limpa valores do formulário de cep.
@@ -89,32 +89,47 @@ function pesquisacep(valor) {
 
         //Insere script no documento e carrega o conteúdo.
         document.body.appendChild(script);
+        return true;
 
     } //end if.
     else {
         //cep é inválido.
         limpa_formulário_cep();
         alert("Formato de CEP inválido.");
+        return false;
     }
   } //end if.
   else {
     //cep sem valor, limpa formulário.
     limpa_formulário_cep();
+    return undefined;
   }
 };
 
-function createElementP(valor) {
-  const info = document.createElement('p');
-  info.innerText = valor;
-  return info 
-}
+function getOngInfo() {
+  const createLi = document.createElement('li');
+  const createH5 = document.createElement('h5');
+  const createSpan = document.createElement('span');
+  createLi.appendChild(createH5);
+  createLi.classList.add('list-group-item');
+  createH5.innerHTML = `${nomeDaOng.value.toUpperCase()}`;
+  createLi.appendChild(createSpan);
+  createSpan.innerText = `ENDEREÇO: ${rua.value.toUpperCase()} - ${numeroPredial.value}, ${bairro.value.toUpperCase()} - ${cidade.value.toUpperCase()}/${estado.value.toUpperCase()}`;
+  return createLi; 
+};
 
-function createDiv() {
-  const item = document.createElement('li');
-  item.appendChild(createElementP(nomeDaOng.value));
-  item.appendChild(createElementP(cidade.value));
-  item.appendChild(createElementP(estado.value));
-  listaOngs.appendChild(item);  
-}
+function appendOngList(event) {
+  event.preventDefault();
+  listaOngs.appendChild(getOngInfo()); 
+};
+botaoCadastrar.addEventListener('click', appendOngList);
 
-botaoCadastrar.addEventListener('click', createDiv);
+function clearForm() {
+  limpa_formulário_cep()
+  nomeDaOng.value = '';
+  inputCep.value = '';
+  numeroPredial.value = '';
+};
+botaoLimpar.addEventListener('click', clearForm);
+
+module.exports = pesquisacep;

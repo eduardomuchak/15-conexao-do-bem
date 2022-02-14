@@ -34,7 +34,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 300px;
+    height: auto;
 }
 
 footer {
@@ -58,6 +58,7 @@ span {
 }
 
 .map {
-    width: 500px;
-    height: 200px;
+    width: 600px;
+    height: 600px;
+    margin: 50px;
 }
