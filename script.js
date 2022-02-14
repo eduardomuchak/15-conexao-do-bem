@@ -8,7 +8,7 @@ function initMap() {
   const ponto = new google.maps.LatLng(-27.6811852,-48.48256989999999);
   const sp = new google.maps.LatLng(-22.618827234831404,-42.57636812499999);
   const rj = new google.maps.LatLng(-23.5516754,-46.6233359);
-const marker = new google.maps.Marker({
+  const marker = new google.maps.Marker({
       position: ponto, sp ,//seta posição
       map: map,//Objeto mapa
       title:"Projeto Construindo um futuro"//string que será exibida quando passar o mouse no marker
