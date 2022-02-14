@@ -133,14 +133,8 @@ function getOngInfo() {
   createH5.innerHTML = `${nomeDaOng.value.toUpperCase()}`;
   createLi.appendChild(createSpan);
   createSpan.innerText = `ENDEREÇO: ${rua.value.toUpperCase()} - ${numeroPredial.value}, ${bairro.value.toUpperCase()} - ${cidade.value.toUpperCase()}/${estado.value.toUpperCase()}`;
-  return createLi; 
+  return createLi;
 };
-
-/* function getCepSave() {
-  const createSpan = document.createElement('span');
-  createSpan.classList.add(inputCep.value);
-  
-}; */
 
 async function appendOngList(event) {
   event.preventDefault();
@@ -153,6 +147,7 @@ async function appendOngList(event) {
     title: nomeDaOng.value
   });
   saveOngs(listaOngs.innerHTML);
+  clearForm();
 };
 botaoCadastrar.addEventListener('click', appendOngList);
 
@@ -216,8 +211,7 @@ window.onload = async () => {
     map: map,//Objeto mapa
     title: nomeDaOng.value
   });
-  })
-
-}
+  });
+};
 
 module.exports = pesquisacep;
