@@ -42,7 +42,7 @@ Este site foi desenvolvido por sem fins lucrativos, visando somente a aproximaç
 
 ## O projeto deve ser feito em grupos de 3 ou 4 pessoas da mesma tribo.
 
-### • O tema fica a critério do grupo, com base nos requisitos abaixo;
+### O tema fica a critério do grupo, com base nos requisitos abaixo;
 • Vocês terão total autonomia para montarem os grupos;
 • Você que tem mais entrosamento com a turma, ajude aquelas pessoas que ainda não se entrosaram e ainda estão tímidas a encontrarem grupos :piscando_olho:;
 • Cada grupo terá 3 minutos cravados para apresentação;
