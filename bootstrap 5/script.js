@@ -89,17 +89,20 @@ function pesquisacep(valor) {
 
         //Insere script no documento e carrega o conteúdo.
         document.body.appendChild(script);
+        return true;
 
     } //end if.
     else {
         //cep é inválido.
         limpa_formulário_cep();
         alert("Formato de CEP inválido.");
+        return false;
     }
   } //end if.
   else {
     //cep sem valor, limpa formulário.
     limpa_formulário_cep();
+    return undefined;
   }
 };
 
@@ -128,3 +131,5 @@ function clearForm() {
   numeroPredial.value = '';
 };
 botaoLimpar.addEventListener('click', clearForm);
+
+module.exports = pesquisacep;
