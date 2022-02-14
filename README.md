@@ -56,13 +56,13 @@ Este site foi desenvolvido por sem fins lucrativos, visando somente a aproximaç
 • O código deve estar no GitHub de vocês.
 ### Bônus
 • Utilizar um framework CSS;
-• Utilizar uma API que usa APIKey ou outra forma de autorização/autenticação para acesso
+• Utilizar uma API que usa APIKey ou outra forma de autorização/autenticação para acesso;
 ### Critérios de avaliação
 • Soft Skills:
- • Apresentação pessoal e da equipe (postura corporal, organização do pensamento, administração do tempo)
- • Apresentação do problema que o projeto resolveu
- • Apresentação das lições aprendidas
+ • Apresentação pessoal e da equipe (postura corporal, organização do pensamento, administração do tempo);
+ • Apresentação do problema que o projeto resolveu;
+ • Apresentação das lições aprendidas;
 • Hard Skills:
- • Falar tecnicamente como foi desenvolvido 
- • Mostrar o design
-• Criatividade, Inovação e Aplicabilidade
+ • Falar tecnicamente como foi desenvolvido ;
+ • Mostrar o design;
+• Criatividade, Inovação e Aplicabilidade;
