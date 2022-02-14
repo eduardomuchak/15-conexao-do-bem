@@ -22,3 +22,7 @@ ol {
 .disappear, .disappearCep{
    display: none;
 }
+
+.img-250px-height {
+   height: 250px;
+}
