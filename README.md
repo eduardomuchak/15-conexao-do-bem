@@ -1,6 +1,3 @@
-### Termos de acordos
-Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe.
-
 # SEJAM TODOS BEM VINDOS AO PROJETO CONEXÃO DO BEM
 
 Este projeto foi idealizado por um grupo de estudantes da Trybe.
@@ -13,7 +10,7 @@ Sendo assim, criamos este site para que ONGs possam se cadastrar para que possam
 # SUMÁRIO
 
 - [Habilidades](#habilidades)
-- - [Desenvolvimento do site](#Desevolvimento-do-site)
+- [Desenvolvimento do site](#Desevolvimento-do-site)
 - [Requisitos do projeto](#requisitos-do-projeto)
 
 ---
@@ -38,7 +35,7 @@ Este site foi desenvolvido por sem fins lucrativos, visando somente a aproximaç
 
 ---
 
-# Requisito do projeto
+# Requisitos do projeto
 
 ## O projeto deve ser feito em grupos de 3 ou 4 pessoas da mesma tribo.
 
@@ -57,12 +54,3 @@ Este site foi desenvolvido por sem fins lucrativos, visando somente a aproximaç
 ### Bônus
 - Utilizar um framework CSS;
 - Utilizar uma API que usa APIKey ou outra forma de autorização/autenticação para acesso;
-### Critérios de avaliação
-- Soft Skills:
- - Apresentação pessoal e da equipe (postura corporal, organização do pensamento, administração do tempo);
- - Apresentação do problema que o projeto resolveu;
- - Apresentação das lições aprendidas;
-- Hard Skills:
- - Falar tecnicamente como foi desenvolvido ;
- - Mostrar o design;
-- Criatividade, Inovação e Aplicabilidade;
