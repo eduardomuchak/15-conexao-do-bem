@@ -8,47 +8,16 @@ const bairro = document.querySelector('#input-bairro');
 const cidade = document.querySelector('#input-cidade');
 const estado = document.querySelector('#input-estado');
 const inputCep = document.querySelector('#input-CEP');
-const botaoFiltrar = document.querySelector('.btn-filter')
+const botaoFiltrar = document.querySelector('.btn-filter');
 
 let map;
 
 function initMap() {
-  map = new google.maps.Map(document.querySelector(".map"), {
-<<<<<<< HEAD
-    center: { lat: -15.212355602107472, lng: -44.20234468749999},
-    zoom: 3,
-  })
-  const ponto = new google.maps.LatLng(-27.6811852,-48.48256989999999);
-  const sp = new google.maps.LatLng(-22.618827234831404,-42.57636812499999);
-  const rj = new google.maps.LatLng(-23.5516754,-46.6233359);
-  const marker = new google.maps.Marker({
-      position: ponto, sp ,//seta posição
-      map: map,//Objeto mapa
-      title:"Projeto Construindo um futuro"//string que será exibida quando passar o mouse no marker
-=======
-    center: { lat: -15.212355602107472, lng: -52},
+  map = new google.maps.Map(document.querySelector('.map'), {
+    center: { lat: -15.212355602107472, lng: -52 },
     zoom: 4.1,
-<<<<<<< HEAD
-  })}
-  //const ponto = new google.maps.LatLng(localizacoes.//latitude,-48.48256989999999);
-  /*const sp = new google.maps.LatLng(-22.618827234831404,-42.57636812499999);
-  const rj = new google.maps.LatLng(-23.5516754,-46.6233359);*/ 
-//const marker = new google.maps.Marker({
-      //position: ponto,//seta posição
-      //map: map,//Objeto mapa
-      //title:"Projeto Construindo um futuro"//string que será exibida quando passar o mouse no marker
->>>>>>> abacc46a3d09fab5641a2c07dc9cd9f4bc3daeb6
-      //icon: caminho_da_imagem
-    /*
-      const marker2 = new google.maps.Marker({
-            position: sp,//seta posição
-            map: map,//Objeto mapa
-            title:"Projeto Gerando Falcões!"//string que será exibida quando passar o mouse no marker
-            //icon: caminho_da_imagem
-=======
->>>>>>> f9b683dfbfb293843cf0334bd03bd443ba302aed
   });
-};
+}
 
 function limpa_formulário_cep() {
   //Limpa valores do formulário de cep.
@@ -56,58 +25,55 @@ function limpa_formulário_cep() {
   bairro.value = '';
   cidade.value = '';
   estado.value = '';
-};
+}
 
 function meu_callback(conteudo) {
-  if (!("erro" in conteudo)) {
+  if (!('erro' in conteudo)) {
     //Atualiza os campos com os valores.
-    rua.value = (conteudo.logradouro);
-    bairro.value = (conteudo.bairro);
-    cidade.value = (conteudo.localidade);
-    estado.value = (conteudo.uf);
+    rua.value = conteudo.logradouro;
+    bairro.value = conteudo.bairro;
+    cidade.value = conteudo.localidade;
+    estado.value = conteudo.uf;
   } //end if.
   else {
     //CEP não Encontrado.
     limpa_formulário_cep();
-    alert("CEP não encontrado.");
+    alert('CEP não encontrado.');
   }
-};
+}
 
 function pesquisacep(valor) {
   //Nova variável "cep" somente com dígitos.
   let cep = valor.replace(/\D/g, '');
 
   //Verifica se campo cep possui valor informado.
-  if (cep != "") {
-
+  if (cep != '') {
     //Expressão regular para validar o CEP.
     let validacep = /^[0-9]{8}$/;
 
     //Valida o formato do CEP.
-    if(validacep.test(cep)) {
+    if (validacep.test(cep)) {
+      //Preenche os campos com "..." enquanto consulta webservice.
+      rua.value = '...';
+      bairro.value = '...';
+      cidade.value = '...';
+      estado.value = '...';
 
-        //Preenche os campos com "..." enquanto consulta webservice.
-        rua.value = "...";
-        bairro.value = "...";
-        cidade.value = "...";
-        estado.value = "...";
+      //Cria um elemento javascript.
+      let script = document.createElement('script');
 
-        //Cria um elemento javascript.
-        let script = document.createElement('script');
+      //Sincroniza com o callback.
+      script.src = `https://viacep.com.br/ws/${cep}/json/?callback=meu_callback`;
 
-        //Sincroniza com o callback.
-        script.src = `https://viacep.com.br/ws/${cep}/json/?callback=meu_callback`;
-
-        //Insere script no documento e carrega o conteúdo.
-        document.body.appendChild(script);
-        return true;
-
+      //Insere script no documento e carrega o conteúdo.
+      document.body.appendChild(script);
+      return true;
     } //end if.
     else {
-        //cep é inválido.
-        limpa_formulário_cep();
-        alert("Formato de CEP inválido.");
-        return false;
+      //cep é inválido.
+      limpa_formulário_cep();
+      alert('Formato de CEP inválido.');
+      return false;
     }
   } //end if.
   else {
@@ -115,7 +81,7 @@ function pesquisacep(valor) {
     limpa_formulário_cep();
     return undefined;
   }
-};
+}
 
 function getOngInfo() {
   const createLi = document.createElement('li');
@@ -132,31 +98,33 @@ function getOngInfo() {
   createLi.classList.add('list-group-item');
   createH5.innerHTML = `${nomeDaOng.value.toUpperCase()}`;
   createLi.appendChild(createSpan);
-  createSpan.innerText = `ENDEREÇO: ${rua.value.toUpperCase()} - ${numeroPredial.value}, ${bairro.value.toUpperCase()} - ${cidade.value.toUpperCase()}/${estado.value.toUpperCase()}`;
+  createSpan.innerText = `ENDEREÇO: ${rua.value.toUpperCase()} - ${
+    numeroPredial.value
+  }, ${bairro.value.toUpperCase()} - ${cidade.value.toUpperCase()}/${estado.value.toUpperCase()}`;
   return createLi;
-};
+}
 
 async function appendOngList(event) {
   event.preventDefault();
-  listaOngs.appendChild(getOngInfo()); 
-  const location = (await latLongTransform(inputCep.value));
-  const ponto = new google.maps.LatLng(location.latitute, location.longitude)
+  listaOngs.appendChild(getOngInfo());
+  const location = await latLongTransform(inputCep.value);
+  const ponto = new google.maps.LatLng(location.latitute, location.longitude);
   const marker = new google.maps.Marker({
-    position: ponto,//seta posição
-    map: map,//Objeto mapa
-    title: nomeDaOng.value
+    position: ponto, //seta posição
+    map: map, //Objeto mapa
+    title: nomeDaOng.value,
   });
   saveOngs(listaOngs.innerHTML);
   clearForm();
-};
+}
 botaoCadastrar.addEventListener('click', appendOngList);
 
 function clearForm() {
-  limpa_formulário_cep()
+  limpa_formulário_cep();
   nomeDaOng.value = '';
   inputCep.value = '';
   numeroPredial.value = '';
-};
+}
 botaoLimpar.addEventListener('click', clearForm);
 
 const saveOngs = (addedItem) => localStorage.setItem('ongList', addedItem);
@@ -169,48 +137,54 @@ const getSavedOngs = () => {
 function filterPerRegion() {
   const instituicoesListadas = [...listaOngs.children];
   const select = document.querySelector('#state-filter');
-	const estado = select.options[select.selectedIndex].text;
+  const estado = select.options[select.selectedIndex].text;
   const select2 = document.querySelector('#category-filter');
-	const categoria = select2.options[select2.selectedIndex].text.toLowerCase();
-  instituicoesListadas.forEach ((element) => {
-    if (!element.classList.contains(estado) || !element.classList.contains(categoria)){
-      element.classList.add('disappear')
+  const categoria = select2.options[select2.selectedIndex].text.toLowerCase();
+  instituicoesListadas.forEach((element) => {
+    if (
+      !element.classList.contains(estado) ||
+      !element.classList.contains(categoria)
+    ) {
+      element.classList.add('disappear');
     }
-    if (element.classList.contains(estado) && element.classList.contains(categoria)){
-      element.classList.remove('disappear')
+    if (
+      element.classList.contains(estado) &&
+      element.classList.contains(categoria)
+    ) {
+      element.classList.remove('disappear');
     }
-    if (estado === 'TODOS' && element.classList.contains(categoria)){
-      element.classList.remove('disappear')
+    if (estado === 'TODOS' && element.classList.contains(categoria)) {
+      element.classList.remove('disappear');
     }
-    if (categoria === 'TODOS' && element.classList.contains(estado)){
-      element.classList.remove('disappear')
+    if (categoria === 'TODOS' && element.classList.contains(estado)) {
+      element.classList.remove('disappear');
     }
-    if (estado === 'TODOS' && categoria === 'TODOS'){
-      element.classList.remove('disappear')
-    };
+    if (estado === 'TODOS' && categoria === 'TODOS') {
+      element.classList.remove('disappear');
+    }
   });
-};
+}
 botaoFiltrar.addEventListener('click', filterPerRegion);
 
 const latLongTransform = async (cep) => {
   const location = await buscaLocalizacao(cep);
   const lat = location[0].geometry.location.lat;
   const lng = location[0].geometry.location.lng;
-  return {latitute: lat, longitude: lng}
+  return { latitute: lat, longitude: lng };
 };
 
 window.onload = async () => {
   const listaOngs = document.querySelector('.lista-ong');
   listaOngs.innerHTML = getSavedOngs();
   const cepsRecuperados = document.querySelectorAll('.disappearCep');
-  cepsRecuperados.forEach(async (element)=> {
-  const location = await latLongTransform(element.innerText);
-  const ponto = new google.maps.LatLng(location.latitute, location.longitude)
-  const marker = new google.maps.Marker({
-    position: ponto,//seta posição
-    map: map,//Objeto mapa
-    title: nomeDaOng.value
-  });
+  cepsRecuperados.forEach(async (element) => {
+    const location = await latLongTransform(element.innerText);
+    const ponto = new google.maps.LatLng(location.latitute, location.longitude);
+    const marker = new google.maps.Marker({
+      position: ponto, //seta posição
+      map: map, //Objeto mapa
+      title: nomeDaOng.value,
+    });
   });
 };
 
