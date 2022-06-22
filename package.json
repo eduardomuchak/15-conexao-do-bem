@@ -4,7 +4,8 @@
   "description": "",
   "main": "jquery-3.6.0.min.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "build --output public"
   },
   "keywords": [],
   "author": "",
